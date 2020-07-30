@@ -8,6 +8,7 @@ $(document).ready(function () {
     console.log("SessionID  " + deviceSessionId);
 
     $('#pay-button').on('click', function (event) {
+        
         event.preventDefault();
         $("#pay-button").prop("disabled", true);
         OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
@@ -19,7 +20,7 @@ $(document).ready(function () {
         $('#token_id').val(token_id);
         // $('#payment-form').submit();
 
-        var data =  $("#payment-form").serializeArray();
+        var data =  $("#payment-form").serialize();
         console.log(data);
 
         $.ajax({
@@ -28,12 +29,12 @@ $(document).ready(function () {
             data: data,//aqui tus datos
             success: function (data) {
                 console.log(data);
-                //lo que devuelve tu archivo mifuncion.php
+                //lo que devuelve tu archivo PaymentController.php
                 alert("cool");
             },
             error: function (data) {
                 console.log(data);
-                //lo que devuelve si falla tu archivo mifuncion.php
+                //lo que devuelve si falla tu archivo PaymentController.php
                 alert("bad");
             }
         });

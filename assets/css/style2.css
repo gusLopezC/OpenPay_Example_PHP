@@ -2,8 +2,6 @@
 body {
     padding: 60px 0;
     background-color: rgba(178, 209, 229, 0.7);
-    margin: 0 auto;
-    width: 600px;
 }
 
 .body-text {
@@ -30,7 +28,7 @@ body {
 .personal-information {
     background-color: #3C8DC5;
     color: #fff;
-    padding: 1px 0;
+    padding: 25px 0;
     text-align: center;
 }
 
@@ -48,14 +46,14 @@ input {
 input[type="text"] {
     display: block;
     height: 50px;
-    width: 97%;
+    width: 100%;
     border: none;
 }
 
 input[type="email"] {
     display: block;
     height: 50px;
-    width: 97%;
+    width: 100%;
     border: none;
 }
 
@@ -80,14 +78,18 @@ input[type="submit"]:hover {
 }
 
 #column-left {
-    width: 46.8%;
+    width: 49%;
     float: left;
     margin-bottom: 2px;
 }
 
 #column-right {
-    width: 46.8%;
+    width: 50%;
     float: right;
+}
+
+#expiration{
+    width: 24%;
 }
 
 @media only screen and (max-width: 480px) {
