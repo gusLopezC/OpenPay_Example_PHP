@@ -1,0 +1,5 @@
+{
+    "require": {
+        "openpay/sdk": "1.4.2.1"
+    }
+}

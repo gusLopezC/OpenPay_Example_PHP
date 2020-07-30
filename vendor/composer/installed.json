@@ -1,0 +1,51 @@
+[
+    {
+        "name": "openpay/sdk",
+        "version": "1.4.2.1",
+        "version_normalized": "1.4.2.1",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/open-pay/openpay-php.git",
+            "reference": "ffebe70c0d49a7877d858c61ea5266058a61ff41"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/open-pay/openpay-php/zipball/ffebe70c0d49a7877d858c61ea5266058a61ff41",
+            "reference": "ffebe70c0d49a7877d858c61ea5266058a61ff41",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-hash": "*",
+            "php": ">=5.2.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.8.*"
+        },
+        "time": "2020-06-18T21:48:07+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Openpay": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Openpay",
+                "email": "soporte@openpay.mx",
+                "homepage": "http://www.openpay.mx/docs/libraries.html"
+            },
+            {
+                "name": "Federico Balderas",
+                "email": "federico.balderas@openpay.mx",
+                "homepage": "https://openpay.mx"
+            }
+        ],
+        "description": "This is a client implementing the payment services for Openpay at openpay.mx"
+    }
+]
