@@ -25,6 +25,8 @@
                     <h1>Payment Information</h1>
                 </div> <!-- end of personal-information -->
                 <form action="#" id="payment-form">
+                <input type="hidden" name="token_id" id="token_id">
+                <input type="hidden" name="use_card_points" id="use_card_points" value="false">
                     <input id="input-field" type="text" placeholder="Name Complet"
                     autocomplete="off" name="name" required data-openpay-card="holder_name"/>
                     

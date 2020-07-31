@@ -2,7 +2,6 @@
 
 require_once "../vendor/openpay/sdk/Openpay.php";	
 
-return  $_REQUEST["deviceIdHiddenFieldName"];
 $openpay = Openpay::getInstance('mdrhnprmsmxkgxtegzhk', 'sk_c71babd865fd420b94bc588a8585c122');
 
 $customerData = array(
@@ -21,14 +20,14 @@ $customerData = array(
 
 $chargeData = array(
 	'method' => 'card',
-	'source_id' => 'krfkkmbvdk3hewatruem',
+	'source_id' => $_POST["token_id"],
 	'amount' => 100,
 	'description' => 'Cargo inicial a mi merchant',
-	'order_id' => 'ORDEN-00071',
-	'device_session_id'  => 'kR1MiQhz2otdIuUlQkbEyitIqVMiI16f',
+	// 'order_id' => 'ORDEN-10072', //opcional
+	'device_session_id'  => $_POST["deviceIdHiddenFieldName"],
 	'customer'=> $customerData);
 
-$charge = $openpay->charges->create($chargeData);
+ $charge = $openpay->charges->create($chargeData);
 
-
+ echo $charge;
 ?>
