@@ -16,7 +16,7 @@ $(document).ready(function() {
 
     var sucess_callbak = function(response) {
         var token_id = response.data.id;
-        alert("Su token es " + token_id);
+        console.log("Su token es " + token_id);
         $('#token_id').val(token_id);
         // $('#payment-form').submit();
 
@@ -25,18 +25,30 @@ $(document).ready(function() {
         console.log(data);
 
         $.ajax({
+            headers: {
+                //  dataType: 'application/json',
+                accepts: {
+                    json: 'application/json'
+                },
+            },
             type: 'POST', //aqui puede ser igual get
-            url: 'controller/PaymentController.php', //aqui va tu direccion donde esta tu funcion php
+            url: 'procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
-            success: function(data) {
-                console.log(data);
-                //lo que devuelve tu archivo PaymentController.php
-                alert("cool");
+            success: function(response) {
+                var jsonData = JSON.parse(response);
+                console.log(jsonData)
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+                /* if (response.success == "1") {
+                     location.href = 'my_profile.php';
+                 } else {
+                     alert('Invalid Credentials!');
+                 }*/
             },
             error: function(data) {
                 console.log(data);
-                //lo que devuelve si falla tu archivo PaymentController.php
-                alert("bad");
+                console.log("bad");
             }
         });
 

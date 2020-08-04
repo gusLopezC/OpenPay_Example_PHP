@@ -30,10 +30,10 @@
                     <input id="input-field" type="text" placeholder="Name Complet"
                     autocomplete="off" name="name" required data-openpay-card="holder_name"/>
                     
-                    <input id="input-field" type="text" data-openpay-card="card_number" placeholder="Card Number" />
-                    <input id="column-left" style="width: 24%; margin-right: 5px;" type="text" name="expiry month" placeholder="MM" data-openpay-card="expiration_month"/>
-                    <input id="column-left" style="width: 24%;" type="text" name="expiry year" placeholder="YY" data-openpay-card="expiration_year"/>
-                    <input id="column-right" type="text" name="cvc" placeholder="CCV" data-openpay-card="cvv2"/>
+                    <input id="input-field" type="text" data-openpay-card="card_number" placeholder="Card Number" value="4242424242424242" />
+                    <input id="column-left" style="width: 24%; margin-right: 5px;" type="text" name="expiry month" placeholder="MM" data-openpay-card="expiration_month" value="02"/>
+                    <input id="column-left" style="width: 24%;" type="text" name="expiry year" placeholder="YY" data-openpay-card="expiration_year" value="21"/>
+                    <input id="column-right" type="text" name="cvc" placeholder="CCV" data-openpay-card="cvv2" value="102"/>
             
                     <div class="card-wrapper"></div>
             
