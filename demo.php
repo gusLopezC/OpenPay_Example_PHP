@@ -25,24 +25,23 @@
                     <h1>Payment Information</h1>
                 </div> <!-- end of personal-information -->
                 <form action="#" id="payment-form">
-                <input type="hidden" name="token_id" id="token_id">
-                <input type="hidden" name="use_card_points" id="use_card_points" value="false">
-                    <input id="input-field" type="text" placeholder="Name Complet"
-                    autocomplete="off" name="name" required data-openpay-card="holder_name"/>
-                    
+                    <input type="hidden" name="token_id" id="token_id">
+                    <input type="hidden" name="use_card_points" id="use_card_points" value="false">
+                    <input id="input-field" type="text" placeholder="Name Complet" autocomplete="off" name="name" required data-openpay-card="holder_name" />
+
                     <input id="input-field" type="text" data-openpay-card="card_number" placeholder="Card Number" value="4242424242424242" />
-                    <input id="column-left" style="width: 24%; margin-right: 5px;" type="text" name="expiry month" placeholder="MM" data-openpay-card="expiration_month" value="02"/>
-                    <input id="column-left" style="width: 24%;" type="text" name="expiry year" placeholder="YY" data-openpay-card="expiration_year" value="21"/>
-                    <input id="column-right" type="text" name="cvc" placeholder="CCV" data-openpay-card="cvv2" value="102"/>
-            
+                    <input id="column-left" style="width: 24%; margin-right: 5px;" type="text" name="expiry month" placeholder="MM" data-openpay-card="expiration_month" value="02" />
+                    <input id="column-left" style="width: 24%;" type="text" name="expiry year" placeholder="YY" data-openpay-card="expiration_year" value="21" />
+                    <input id="column-right" type="text" name="cvc" placeholder="CCV" data-openpay-card="cvv2" value="102" />
+
                     <div class="card-wrapper"></div>
-            
+
                     <input id="input-field" type="text" name="streetaddress" required="required" autocomplete="on" maxlength="45" placeholder="Streed Address" />
                     <input id="column-left" type="text" name="city" required="required" autocomplete="on" maxlength="20" placeholder="City" />
                     <input id="column-right" type="text" name="zipcode" required="required" autocomplete="on" pattern="[0-9]*" maxlength="5" placeholder="ZIP code" />
                     <input id="input-field" type="email" name="email" required="required" autocomplete="on" maxlength="40" placeholder="Email" />
-                    <input  type="submit"  id="pay-button" value="Submit" />
-        
+                    <input type="submit" id="pay-button" value="Submit" />
+
                 </form>
             </div>
         </div>
@@ -50,11 +49,28 @@
             <div class="card" style="width:400px">
                 <img class="card-img-top" src="https://ss628.liverpool.com.mx/xl/1097268092.jpg" alt="Card image">
                 <div class="card-body">
-                  <h4 class="card-title">Laptop Dell Inspiron <strong>$11,969</strong></h4>
-                  <p class="card-text"> Modelo 3000 de 15.6.</p>
-                  <a href="#" class="btn btn-primary">Ver más ...</a>
+                    <h4 class="card-title">Laptop Dell Inspiron <strong>$11,969</strong></h4>
+                    <p class="card-text"> Modelo 3000 de 15.6.</p>
+                    <a href="#" class="btn btn-primary">Ver más ...</a>
                 </div>
-              </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="myDIV" style="border:1px solid black; display:none;">
+                <div class="card" style="width:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">Pago exitoso</h5>
+                        <div id="content"></div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

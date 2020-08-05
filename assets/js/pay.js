@@ -6,6 +6,7 @@ $(document).ready(function() {
     //Se genera el id de dispositivo
     var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
     console.log("SessionID  " + deviceSessionId);
+    var x = document.getElementById("myDIV");
 
     $('#pay-button').on('click', function(event) {
 
@@ -25,29 +26,29 @@ $(document).ready(function() {
         console.log(data);
 
         $.ajax({
-            headers: {
-                //  dataType: 'application/json',
-                accepts: {
-                    json: 'application/json'
-                },
-            },
             type: 'POST', //aqui puede ser igual get
             url: 'procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
-                var jsonData = JSON.parse(response);
-                console.log(jsonData)
+                //
+                var jsonData2 = JSON.parse(response);
+                var resp = JSON.parse(jsonData2.charge);
+                console.log(jsonData2);
+                console.log(resp);
 
-                // user is logged in successfully in the back-end
-                // let's redirect
-                /* if (response.success == "1") {
-                     location.href = 'my_profile.php';
-                 } else {
-                     alert('Invalid Credentials!');
-                 }*/
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+
+
+                document.getElementById('content').innerHTML += '<div>' + resp + ' </div>';
+
+
             },
             error: function(data) {
-                console.log(data);
+                console.log(JSON.stringify(response));
                 console.log("bad");
             }
         });
@@ -60,5 +61,22 @@ $(document).ready(function() {
         alert("ERROR [" + response.status + "] " + desc);
         $("#pay-button").prop("disabled", false);
     };
+
+
+    function addRow() {
+        document.querySelector('#content').insertAdjacentHTML(
+            'afterbegin',
+            `<div class="row">
+            <input type="text" name="name" value="" />
+            <input type="text" name="value" value="" />
+            <label><input type="checkbox" name="check" value="1" />Checked?</label>
+            <input type="button" value="-" onclick="removeRow(this)">
+          </div>`
+        )
+    }
+
+    function removeRow(input) {
+        input.parentNode.remove()
+    }
 
 });

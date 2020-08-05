@@ -33,8 +33,8 @@ class Cargo
 		$chargeData = array(
 			'method' => 'card',
 			'source_id' => $datos[0],
-			'amount' => 100,
-			'description' => 'Cargo inicial a mi merchant',
+			'amount' => 11,969,
+			'description' => 'Laptop Dell Inspiron',
 			// 'order_id' => 'ORDEN-10072', //opcional
 			'device_session_id'  => $datos[1],
 			'customer' => $customerData
@@ -55,11 +55,9 @@ class Cargo
 		if ($errorMsg !== null || $errorCode !== null) {
 			$errorMsg = $this->getError($errorCode);
 			$status = array("status" => false, "error" => $errorMsg, "errorCode" => $errorCode);
-		} else{
-			$status = array("status" => true);
+		} else {
+			$status = array("status" => true, "charge" => json_encode($chargeData));
 		}
-	
-		var_dump($status);
 		return $status;
 	}
 }
