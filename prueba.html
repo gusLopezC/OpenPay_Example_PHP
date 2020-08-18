@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style2.css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
+    <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Codigo QR</h1>
+                <img id="imgElem"></img>
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+<script>
+
+
+    var base64_string = "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";
+    var img = document.createElement("img");
+    // added `width` , `height` properties to `img` attributes
+    imgElem.setAttribute('src', "data:image/jpg;base64," + base64_string);
+
+
+</script>
+
+</html>
