@@ -63,20 +63,41 @@ $(document).ready(function() {
     };
 
 
-    function addRow() {
-        document.querySelector('#content').insertAdjacentHTML(
-            'afterbegin',
-            `<div class="row">
-            <input type="text" name="name" value="" />
-            <input type="text" name="value" value="" />
-            <label><input type="checkbox" name="check" value="1" />Checked?</label>
-            <input type="button" value="-" onclick="removeRow(this)">
-          </div>`
-        )
-    }
+    /*
+     *    PAGO CON CODI    
+     *
+     */
 
-    function removeRow(input) {
-        input.parentNode.remove()
-    }
+    $('#pay-button-codi').on('click', function(event) {
+
+        event.preventDefault();
+        $("#pay-button-codi").prop("disabled", true);
+
+        var data = $("#payment-form").serializeArray();
+
+        console.log(data);
+
+        $.ajax({
+            type: 'POST', //aqui puede ser igual get
+            url: 'procesos/crearPagoCodi.php', //aqui va tu direccion donde esta tu funcion php
+            data: data, //aqui tus datos
+            success: function(response) {
+                //
+                console.log(response);
+                //var jsonData2 = JSON.parse(response);
+                //var resp = JSON.parse(jsonData2.charge);
+                //console.log(jsonData2);
+                //console.log(resp);
+
+            },
+            error: function(data) {
+                console.log(JSON.stringify(response));
+                console.log("bad");
+            }
+        });
+
+    });
+
+
 
 });

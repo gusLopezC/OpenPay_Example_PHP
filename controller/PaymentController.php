@@ -33,7 +33,7 @@ class Cargo
 		$chargeData = array(
 			'method' => 'card',
 			'source_id' => $datos[0],
-			'amount' => 11,969,
+			'amount' => 11, 969,
 			'description' => 'Laptop Dell Inspiron',
 			// 'order_id' => 'ORDEN-10072', //opcional
 			'device_session_id'  => $datos[1],
@@ -60,4 +60,51 @@ class Cargo
 		}
 		return $status;
 	}
+
+
+	public function crearCargoCodi()
+	{
+		$chargeMode  = array(
+			'mode' => 'QR_CODE',
+			
+		);
+
+		$customerData = array(
+			'name' => 'User',
+			'last_name' => 'Testing',
+			'email' => 'Testing@payments.com',
+			'phone_number' => '4421112233',
+			'address' => array(
+				'line1' => 'Privada Rio No. 12',
+				'line2' => 'Co. El Tintero',
+				'line3' => '',
+				'postal_code' => '76920',
+				'state' => 'Querétaro',
+				'city' => 'Querétaro.',
+				'country_code' => 'MX'
+			)
+		);
+		
+		$chargeData  = array(
+			'method' => 'codi',
+			'amount' => 200.00,
+			'description' => 'Cargo con código QR',
+			// 'order_id' => 'codi-00051',
+			'codi_options' => '',
+			'due_date' => '2020-12-20T13:45:00',
+			'codi_options' => $chargeMode,
+			'customer' => $customerData
+		);
+
+		$charge = $this->openpay->charges->create($chargeData);
+
+		// $status = array("status" => true, "charge" => json_encode($charge));
+
+		$array = json_decode(json_encode($charge), true);
+
+		return $array;
+
+	}
+
+
 }
