@@ -19,7 +19,7 @@
     <div class="col-sm-6">
     <h6>Pago con Codi</h6>
     <br><br>
-    <form action="#" id="payment-form">
+    <form action="#" id="payment-form-codi">
         <input type="submit" value="Generar codigo" id="pay-button-codi" > 
     </form>
     </div>
