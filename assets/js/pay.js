@@ -73,7 +73,7 @@ $(document).ready(function() {
         event.preventDefault();
         $("#pay-button-codi").prop("disabled", true);
 
-        var data = $("#payment-form").serializeArray();
+        var data = $("#payment-form-codi").serializeArray();
 
         console.log(data);
 
