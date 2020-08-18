@@ -10,8 +10,11 @@ $datos = array(
 
 $objCargo = new Cargo();
 
-$resp = $objCargo->crearCargoCodi($datos);
-   var_dump($resp);
-// $myJSON = json_encode($resp);
-// echo $myJSON;
+ $responseJson = new \stdClass();
+    $responseJson->status = true;
+    $responseJson->msg = "Pago con suceso";
+    $responseJson->charge = "queso";
+
+    $myJSON = json_encode($responseJson);
+    echo $myJSON;
 ?>
