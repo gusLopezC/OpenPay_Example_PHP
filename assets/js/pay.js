@@ -83,11 +83,10 @@ $(document).ready(function() {
             data: data, //aqui tus datos
             success: function(response) {
                 //
-                console.log(response);
-                //var jsonData2 = JSON.parse(response);
-                //var resp = JSON.parse(jsonData2.charge);
-                //console.log(jsonData2);
-                //console.log(resp);
+                var respo = JSON.parse(JSON.parse(response));
+                console.dir(respo);
+                console.log(respo);
+                console.log(respo);
 
             },
             error: function(data) {
@@ -97,6 +96,10 @@ $(document).ready(function() {
         });
 
     });
+
+    function bar(func) {
+        console.log(func);
+    }
 
 
 

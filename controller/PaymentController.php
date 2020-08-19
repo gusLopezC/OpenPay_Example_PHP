@@ -98,7 +98,7 @@ class Cargo
 
 		$charge = $this->openpay->charges->create($chargeData);
 
-		$status = array("status" => true, "charge" => json_encode( (array)$charge ););
+		$status = array("status" => true, "charge" => json_encode( (array)$charge ));
 
 		// $array = json_decode(json_encode($charge), true);
 
