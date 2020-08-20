@@ -1,6 +1,6 @@
 <?php
 
-require_once "../vendor/openpay/sdk/Openpay.php";
+require_once "../../vendor/openpay/sdk/Openpay.php";
 
 class Cargo
 {
@@ -33,7 +33,7 @@ class Cargo
 		$chargeData = array(
 			'method' => 'card',
 			'source_id' => $datos[0],
-			'amount' => 11, 969,
+			'amount' => 11, 
 			'description' => 'Laptop Dell Inspiron',
 			// 'order_id' => 'ORDEN-10072', //opcional
 			'device_session_id'  => $datos[1],
@@ -50,7 +50,7 @@ class Cargo
 			$errorMsg = $e->getMessage();
 			$errorCode =  $e->getCode();
 		}
-
+		
 		$status = null;
 		if ($errorMsg !== null || $errorCode !== null) {
 			$errorMsg = $this->getError($errorCode);
