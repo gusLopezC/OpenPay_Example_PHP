@@ -27,7 +27,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST', //aqui puede ser igual get
-            url: '../web/procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
+            url: '../procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
                 //
