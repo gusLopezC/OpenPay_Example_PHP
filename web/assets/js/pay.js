@@ -27,7 +27,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST', //aqui puede ser igual get
-            url: '/procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
+            url: '../webz/procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
                 //
@@ -79,14 +79,10 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST', //aqui puede ser igual get
-            url: '../procesos/crearPagoCodi.php', //aqui va tu direccion donde esta tu funcion php
+            url: '../web/procesos/crearPagoCodi.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
-                //
-                var respo = JSON.parse(JSON.parse(response));
-                console.dir(respo);
-                console.log(respo);
-                console.log(respo);
+                console.dir(JSON.parse(response));
 
             },
             error: function(data) {
