@@ -1,6 +1,7 @@
 <?php
 
 require_once "../../vendor/openpay/sdk/Openpay.php";
+require_once "../models/Charge.php";
 
 class Cargo
 {
@@ -33,7 +34,7 @@ class Cargo
 		$chargeData = array(
 			'method' => 'card',
 			'source_id' => $datos[0],
-			'amount' => 11, 
+			'amount' => 11,
 			'description' => 'Laptop Dell Inspiron',
 			// 'order_id' => 'ORDEN-10072', //opcional
 			'device_session_id'  => $datos[1],
@@ -50,7 +51,7 @@ class Cargo
 			$errorMsg = $e->getMessage();
 			$errorCode =  $e->getCode();
 		}
-		
+
 		$status = null;
 		if ($errorMsg !== null || $errorCode !== null) {
 			$errorMsg = $this->getError($errorCode);
@@ -66,7 +67,7 @@ class Cargo
 	{
 		$chargeMode  = array(
 			'mode' => 'QR_CODE',
-			
+
 		);
 
 		$customerData = array(
@@ -84,7 +85,7 @@ class Cargo
 				'country_code' => 'MX'
 			)
 		);
-		
+
 		$chargeData  = array(
 			'method' => 'codi',
 			'amount' => 200.00,
@@ -98,13 +99,13 @@ class Cargo
 
 		$charge = $this->openpay->charges->create($chargeData);
 
-		$status = array("status" => true, "charge" => json_encode( (array)$charge ));
+		$responseJson = new \stdClass();
+		$responseJson->status = true;
+		$responseJson->msg = "Pago con suceso";
+		$responseJson->id = $charge->id;
+		$responseJson->status = $charge->status;
+		$responseJson->charge = $charge->payment_method;
 
-		// $array = json_decode(json_encode($charge), true);
-
-		return $status;
-
+		echo json_encode($responseJson);
 	}
-
-
 }

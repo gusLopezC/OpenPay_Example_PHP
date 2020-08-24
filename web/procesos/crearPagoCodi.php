@@ -9,6 +9,9 @@ $datos = array();
 $objCargo = new Cargo();
 $resp = $objCargo->crearCargoCodi($datos);
 
-echo $resp["charge"];
+
+echo $resp;
+
+//echo $resp["charge"];
 
 ?>

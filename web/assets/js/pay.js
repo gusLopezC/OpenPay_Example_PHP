@@ -8,6 +8,7 @@ $(document).ready(function() {
     console.log("SessionID  " + deviceSessionId);
     var x = document.getElementById("myDIV");
 
+
     $('#pay-button').on('click', function(event) {
 
         event.preventDefault();
@@ -82,8 +83,10 @@ $(document).ready(function() {
             url: '../web/procesos/crearPagoCodi.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
-                console.dir(JSON.parse(response));
+                var data = JSON.parse(response)
+                console.log(data);
 
+                bar(data.id, data.charge.barcode_base64, data.charge.barcode, data.status)
             },
             error: function(data) {
                 console.log(JSON.stringify(response));
@@ -93,9 +96,29 @@ $(document).ready(function() {
 
     });
 
-    function bar(func) {
-        console.log(func);
+    function bar(id, base64, barcode, status) {
+
+        document.getElementById("link2").setAttribute("href", barcode);
+        document.getElementById("link2").style.display = "block";
+
+        var span = document.getElementById("status");
+        span.textContent = status;
+
+        var span = document.getElementById('idtransaccion');
+
+        while (span.firstChild) {
+            span.removeChild(span.firstChild);
+        }
+        span.appendChild(document.createTextNode(id));
+
+
+        var base64_string = base64;
+        var img = document.createElement("img");
+        // added `width` , `height` properties to `img` attributes
+        imgElem.setAttribute('src', "data:image/jpg;base64," + base64_string);
+
     }
+
 
 
 
