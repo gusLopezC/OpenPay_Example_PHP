@@ -82,7 +82,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST', //aqui puede ser igual get
-            url: '../procesos/crearPagoCodi.php', //aqui va tu direccion donde esta tu funcion php
+            url: '../web/procesos/crearPagoCodi.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
                 var data = JSON.parse(response)
