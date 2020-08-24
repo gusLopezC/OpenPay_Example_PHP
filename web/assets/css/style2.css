@@ -88,16 +88,24 @@ input[type="submit"]:hover {
     float: right;
 }
 
-#expiration{
+#expiration {
     width: 24%;
 }
 
-.card-img-top{
+.card-img-top {
     width: 100%;
 }
 
 .btn-block {
     width: 100%;
+}
+
+.dangertexto {
+    color: #dc3545;
+}
+
+.text-success {
+    color: #28a745!important;
 }
 
 @media only screen and (max-width: 480px) {

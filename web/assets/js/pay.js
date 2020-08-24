@@ -9,6 +9,8 @@ $(document).ready(function() {
     var x = document.getElementById("myDIV");
 
 
+
+
     $('#pay-button').on('click', function(event) {
 
         event.preventDefault();
