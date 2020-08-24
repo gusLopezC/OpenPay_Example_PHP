@@ -23,7 +23,7 @@ function myFunction() {
     var id = $('#idtransaccion').text();
     console.log(id)
     var settings = {
-        "url": "https://sandbox-api.openpay.mx/v1/mdrhnprmsmxkgxtegzhk/charges/trepauh5p4p1t3mgdpej", // + id,
+        "url": "https://sandbox-api.openpay.mx/v1/mdrhnprmsmxkgxtegzhk/charges/" + id,
         "method": "GET",
         "timeout": 0,
         "headers": {
