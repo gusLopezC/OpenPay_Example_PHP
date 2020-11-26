@@ -67,7 +67,7 @@ class Cargo
 
 	public function crearCargoCodi()
 	{
-		
+		/*
 		$chargeMode  = array(
 			'mode' => 'QR_CODE',
 
@@ -101,16 +101,16 @@ class Cargo
 		);
 
 		$charge = $this->openpay->charges->create($chargeData);
+		*/
 		
-		/*
 		$chargeData = array(
     		'amount' => 200.00,
     		'description' => 'Cargo con código QR Estático',
     		'due_date' => '2020-07-20T13:45:00'
-    	);
+    		);
 
 		$charge = $this->openpay->charges->create($chargeData);
-		*/
+		
 
 		$responseJson = new \stdClass();
 		$responseJson->status = true;
