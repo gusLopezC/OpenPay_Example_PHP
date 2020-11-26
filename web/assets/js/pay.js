@@ -26,11 +26,9 @@ $(document).ready(function() {
 
         var data = $("#payment-form").serializeArray();
 
-        console.log(data);
-
         $.ajax({
             type: 'POST', //aqui puede ser igual get
-            url: '../procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
+            url: '../web/procesos/crearPago.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
                 //
@@ -51,7 +49,7 @@ $(document).ready(function() {
 
             },
             error: function(data) {
-                console.log(JSON.stringify(response));
+                console.log(JSON.stringify(data));
                 console.log("bad");
             }
         });
@@ -85,6 +83,7 @@ $(document).ready(function() {
             url: '../web/procesos/crearPagoCodi.php', //aqui va tu direccion donde esta tu funcion php
             data: data, //aqui tus datos
             success: function(response) {
+                console.log(response);
                 var data = JSON.parse(response)
                 console.log(data);
 
