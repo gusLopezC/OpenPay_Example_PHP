@@ -11,7 +11,7 @@ class Cargo
 
 	public function __construct()
 	{
-		$this->openpay = Openpay::getInstance('msybloqpkfqckhnbtxns', 'sk_838cb69eac694a41bf52259fd911cbd1');
+		$this->openpay = Openpay::getInstance('', '');
 		Openpay::setProductionMode(true);
 	}
 
