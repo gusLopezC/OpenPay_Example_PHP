@@ -11,37 +11,28 @@ class Cargo
 
 	public function __construct()
 	{
-		$this->openpay = Openpay::getInstance('mdrhnprmsmxkgxtegzhk', 'sk_c71babd865fd420b94bc588a8585c122');
+		$this->openpay = Openpay::getInstance('msybloqpkfqckhnbtxns', 'sk_838cb69eac694a41bf52259fd911cbd1');
+		Openpay::setProductionMode(true);
 	}
 
 	public function crearCargo($datos)
 	{
 	
-		$customerData = array(
-			'name' => 'Teofilo',
-			'last_name' => 'Velazco',
-			'email' => 'teofilo@payments.com',
-			'phone_number' => '4421112233',
-			'address' => array(
-				'line1' => 'Privada Rio No. 12',
-				'line2' => 'Co. El Tintero',
-				'line3' => '',
-				'postal_code' => '76920',
-				'state' => 'Querétaro',
-				'city' => 'Querétaro.',
-				'country_code' => 'MX'
-			)
-		);
-
-		$chargeData = array(
-			'method' => 'card',
-			'source_id' => $datos[0],
-			'amount' => 11,
-			'description' => 'Laptop Dell Inspiron',
-			// 'order_id' => 'ORDEN-10072', //opcional
-			'device_session_id'  => $datos[1],
-			'customer' => $customerData
-		);
+		$customer = array(
+			'name' => 'Juan',
+			'last_name' => 'Vazquez Juarez',
+			'phone_number' => '4423456723',
+			'email' => 'juan.vazquez@empresa.com.mx');
+	   
+	   $chargeRequest = array(
+		   "method" => "card",
+		   'amount' => 100,
+		   'description' => 'Cargo terminal virtual a mi merchant',
+		   'customer' => $customer,
+		   'send_email' => false,
+		   'confirm' => false,
+		   'redirect_url' => 'http://www.openpay.mx/index.html')
+	   ;
 
 		$charge = null;
 		$errorMsg = null;
